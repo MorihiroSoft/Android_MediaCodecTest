@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MediaCodecTest(API18)</string>
+    <string name="start">Record</string>
+    <string name="stop">Stop</string>
+    <string name="play">Playback</string>
+
+</resources>
