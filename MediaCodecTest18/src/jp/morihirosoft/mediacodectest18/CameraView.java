@@ -27,22 +27,21 @@ class CameraView extends GLSurfaceView {
 	//---------------------------------------------------------------------
 	private final VideoParam mVideoParam = VideoParam.getInstance();
 
-	private Context    mContext  = null;
-	private MyRenderer mRenderer = null;
-	private Camera     mCamera   = null;
-	private MyRecorder mRecorder = null;
+	private Camera      mCamera   = null;
+	private MyRenderer  mRenderer = null;
+	private MyRecorder  mRecorder = null;
 
 	//---------------------------------------------------------------------
 	// PUBLIC METHODS
 	//---------------------------------------------------------------------
 	public CameraView(Context context) {
 		super(context);
-		init(context);
+		init();
 	}
 
 	public CameraView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		init(context);
+		init();
 	}
 
 	@Override
@@ -60,7 +59,7 @@ class CameraView extends GLSurfaceView {
 	public void startVideo() {
 		if (mRecorder == null) {
 			mRecorder = new MyRecorder();
-			mRecorder.prepareEncoder(mContext);
+			mRecorder.prepareEncoder();
 			mRenderer.setRecorder(mRecorder);
 		}
 	}
@@ -69,15 +68,14 @@ class CameraView extends GLSurfaceView {
 		if (mRecorder != null) {
 			mRecorder.stop();
 			mRecorder = null;
-			mRenderer.setRecorder(mRecorder);
+			mRenderer.setRecorder(null);
 		}
 	}
 
 	//---------------------------------------------------------------------
 	// PRIVATE...
 	//---------------------------------------------------------------------
-	private void init(Context context) {
-		mContext = context;
+	private void init() {
 		setEGLContextClientVersion(2);
 		mRenderer = new MyRenderer(this);
 		setRenderer(mRenderer);

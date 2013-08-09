@@ -18,7 +18,6 @@ package jp.morihirosoft.mediacodectest18;
 
 import java.nio.ByteBuffer;
 
-import android.content.Context;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
 import android.media.MediaFormat;
@@ -45,7 +44,7 @@ public class MyRecorder {
 	public MyRecorder() {
 	}
 
-	public void prepareEncoder(Context context) {
+	public void prepareEncoder() {
 		if (mMediaCodec != null || mInputSurface != null) {
 			throw new RuntimeException("prepareEncoder called twice?");
 		}
