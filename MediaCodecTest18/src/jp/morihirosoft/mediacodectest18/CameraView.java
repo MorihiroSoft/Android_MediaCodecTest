@@ -46,8 +46,8 @@ class CameraView extends GLSurfaceView {
 
 	@Override
 	public void onResume() {
-		super.onResume();
 		initCamera();
+		super.onResume();
 	}
 
 	@Override
@@ -105,6 +105,7 @@ class CameraView extends GLSurfaceView {
 			mCamera.stopPreview();
 			mCamera.release();
 			mCamera = null;
+			mRenderer.setCamera(null);
 		}
 	}
 }

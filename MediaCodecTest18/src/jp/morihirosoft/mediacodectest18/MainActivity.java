@@ -67,6 +67,7 @@ View.OnClickListener
 
 	@Override
 	protected void onPause() {
+		stopVideo();
 		mCameraView.onPause();
 		super.onPause();
 	}
